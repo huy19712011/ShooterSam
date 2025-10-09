@@ -31,5 +31,14 @@ void AGun::Tick(float DeltaTime)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void AGun::PullTrigger()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Bang!"));
+	// UE_LOG(LogTemp, Warning, TEXT("Bang!"));
+	if (OwnerController)
+	{
+		FVector ViewPointLocation;
+		FRotator ViewPointRotation;
+		OwnerController->GetPlayerViewPoint(ViewPointLocation, ViewPointRotation);
+
+		DrawDebugCamera(GetWorld(), ViewPointLocation, ViewPointRotation,
+			90.0f, 2.0f, FColor::Red, true);
+	}
 }
