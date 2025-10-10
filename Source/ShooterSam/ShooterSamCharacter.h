@@ -106,6 +106,12 @@ public:
 
 	AGun* Gun;
 
+	UPROPERTY(EditAnywhere)
+	float MaxHealth = 100.0f;
+
+	float Health;
+	bool IsAlive = true;
+
 	UFUNCTION()
 	void OnDamageTaken(AActor* DamagedActor, float Damage,
 		const class UDamageType* DamageType, class AController* InstigateBy, AActor* DamageCauser);
