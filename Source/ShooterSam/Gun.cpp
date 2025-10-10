@@ -5,7 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 
 //for the macro example only
-#define PI 3.14159f
+#define MY_PI 3.14159f
 #define LOG(x) UE_LOG(LogTemp, Display, TEXT(x))
 #define LOG_WARNING(x) UE_LOG(LogTemp, Warning, TEXT(x))
 
@@ -33,7 +33,7 @@ void AGun::BeginPlay()
 	MuzzleFlashParticleSystem->Deactivate();
 
 	// for the example only
-	UE_LOG(LogTemp, Display, TEXT("The number pi is: %f"), PI);
+	UE_LOG(LogTemp, Display, TEXT("The number pi is: %f"), MY_PI);
 	LOG("Hello Macro!")
 	LOG_WARNING("LogWarning macro")
 	
