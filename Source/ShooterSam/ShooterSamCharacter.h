@@ -105,5 +105,9 @@ public:
 	TSubclassOf<AGun> GunClass;
 
 	AGun* Gun;
+
+	UFUNCTION()
+	void OnDamageTaken(AActor* DamagedActor, float Damage,
+		const class UDamageType* DamageType, class AController* InstigateBy, AActor* DamageCauser);
 };
 

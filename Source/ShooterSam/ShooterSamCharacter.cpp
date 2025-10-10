@@ -54,6 +54,8 @@ void AShooterSamCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	OnTakeAnyDamage.AddDynamic(this, &AShooterSamCharacter::OnDamageTaken);
+
 	GetMesh()->HideBoneByName("weapon_r", PBO_None);
 	
 	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
@@ -169,4 +171,11 @@ void AShooterSamCharacter::Shoot()
 	{
 		Gun->PullTrigger();
 	}
+}
+
+// ReSharper disable once CppMemberFunctionMayBeConst
+void AShooterSamCharacter::OnDamageTaken(AActor* DamagedActor, float Damage, const class UDamageType* DamageType,
+                                         class AController* InstigateBy, AActor* DamageCauser)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Damage taken: %f"), Damage);
 }
