@@ -4,6 +4,11 @@
 #include "Gun.h"
 #include "Kismet/GameplayStatics.h"
 
+//for the macro example only
+#define PI 3.14159f
+#define LOG(x) UE_LOG(LogTemp, Display, TEXT(x))
+#define LOG_WARNING(x) UE_LOG(LogTemp, Warning, TEXT(x))
+
 // Sets default values
 AGun::AGun()
 {
@@ -26,6 +31,12 @@ void AGun::BeginPlay()
 	Super::BeginPlay();
 
 	MuzzleFlashParticleSystem->Deactivate();
+
+	// for the example only
+	UE_LOG(LogTemp, Display, TEXT("The number pi is: %f"), PI);
+	LOG("Hello Macro!")
+	LOG_WARNING("LogWarning macro")
+	
 }
 
 // Called every frame
