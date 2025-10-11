@@ -20,4 +20,14 @@ void AShooterSamGameMode::BeginPlay()
 
 	TArray<AActor*> ShooterAIActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AShooterAI::StaticClass(), ShooterAIActors);
+	for (int32 LoopIndex = 0; LoopIndex < ShooterAIActors.Num(); ++LoopIndex)
+	{
+		AActor* ShooterAIActor = ShooterAIActors[LoopIndex];
+
+		if (AShooterAI* ShooterAI = Cast<AShooterAI>(ShooterAIActor))
+		{
+			ShooterAI->StartBehaviorTree(Player);
+			UE_LOG(LogTemp, Warning, TEXT("%s starting behavior tree"), *ShooterAI->GetActorNameOrLabel());
+		}
+	}
 }
