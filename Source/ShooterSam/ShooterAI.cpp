@@ -8,12 +8,6 @@
 void AShooterAI::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if (EnemyAIBehaviorTree)
-	{
-		RunBehaviorTree(EnemyAIBehaviorTree);
-	}
-
 }
 
 void AShooterAI::Tick(float DeltaTime)
@@ -33,4 +27,20 @@ void AShooterAI::Tick(float DeltaTime)
 	// 		StopMovement();
 	// 	}
 	// }
+}
+
+// ReSharper disable once CppMemberFunctionMayBeConst
+void AShooterAI::StartBehaviorTree(AShooterSamCharacter* Player)
+{
+	if (EnemyAIBehaviorTree)
+	{
+		MyCharacter = Cast<AShooterSamCharacter>(GetPawn());
+		
+		if (Player)
+		{
+			PlayerCharacter = Player;
+		}
+		
+		RunBehaviorTree(EnemyAIBehaviorTree);
+	}	
 }
